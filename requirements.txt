@@ -1,4 +1,4 @@
-Django==4.2.1
+Django
 matplotlib==3.5.2
 pandas==1.4.3
 scikit_learn==1.2.2
