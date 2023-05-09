@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes prediction</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com/dist/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-400 to-cyan-500">
+    <div class="container mx-auto flex justify-center items-center h-full my-8">
+        <div class="max-w-md w-full rounded-lg shadow-lg bg-white p-8">
+            <form method="POST" action="predict/" class="space-y-4">
+                {% csrf_token %}
+                <h2 class="text-3xl font-bold text-center">Predict Diabetes</h2>
+                <hr>
+                {% if prediction %}
+                <div class="text-center font-bold text-lg">Prediction: {{ prediction }}</div>
+                {% endif %}
+                <div class="flex flex-col space-y-2">
+                    <label for="pregnancies" class="text-lg font-bold">Pregnancies:</label>
+                    <input type="number" name="pregnancies" id="pregnancies" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="glucose" class="text-lg font-bold">Glucose:</label>
+                    <input type="number" name="glucose" id="glucose" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="blood_pressure" class="text-lg font-bold">Blood Pressure:</label>
+                    <input type="number" name="blood_pressure" id="blood_pressure" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="skin_thickness" class="text-lg font-bold">Skin Thickness:</label>
+                    <input type="number" name="skin_thickness" id="skin_thickness" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="insulin" class="text-lg font-bold">Insulin:</label>
+                    <input type="number" name="insulin" id="insulin" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="bmi" class="text-lg font-bold">BMI:</label>
+                    <input type="number" name="bmi" id="bmi" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label for="bmi" class="text-lg font-bold">Diabetes Pedigree Function: </label>
+                    <input type="number" name="Diabetes_ped" id="Diabetes_ped" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+               
+                <div class="flex flex-col space-y-2">
+                    <label for="bmi" class="text-lg font-bold">Age:  </label>
+                    <input type="number" name="Age" id="Age" required
+                        class="border border-gray-400 rounded-lg p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+                <div class="flex flex-row ">
+                    
+                    
+                    <button type="submit" class="flex flex-row mx-auto my-4 bg-blue-500 text-white rounded-lg px-4 py-2 font-bold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Submit</button>
+                    <button type="reset" onclick="redirectToHome()" class="flex flex-row mx-auto my-4  bg-blue-500 text-white rounded-lg px-4 py-2 font-bold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Reset</button>
+                 
+
+                </div>
+                </form>
+        </div>
+    </div>
+
+    <script>
+        function redirectToHome() {
+            window.location.href = '/';
+        }
+        </script>
+</body>
+
+
+
